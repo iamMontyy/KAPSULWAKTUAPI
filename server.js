@@ -26,3 +26,24 @@ const capsuleSchema = new mongoose.Schema({
 });
 
 const Capsule = mongoose.model('Capsule', capsuleSchema);
+
+app.post('/capsule', async (req, res) => {
+    try {
+        const { pesan, tanggal_buka } = req.body;
+        
+        const kapsulBaru = new Capsule({
+            pesan: pesan,
+            tanggal_buka: tanggal_buka
+        });
+        
+        await kapsulBaru.save(); 
+        
+        
+        res.status(201).json({ 
+            notifikasi: "Kapsul berhasil dikubur!", 
+            id_kapsul: kapsulBaru._id 
+        });
+    } catch (error) {
+        res.status(400).json({ notifikasi: "Gagal mengubur kapsul" });
+    }
+});
