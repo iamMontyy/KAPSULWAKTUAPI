@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/time_capsule_db')
-    .then(() => console.log('Terhubung ke database Time Capsule!'))
+    .then(() => console.log('Terhubung ke database Kapsul Waktu!'))
     .catch((err) => console.log('Gagal terhubung:', err));
 
 const capsuleSchema = new mongoose.Schema({
