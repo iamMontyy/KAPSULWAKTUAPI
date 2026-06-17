@@ -35,9 +35,7 @@ app.post('/capsule', async (req, res) => {
             pesan: pesan,
             tanggal_buka: tanggal_buka
         });
-        
         await kapsulBaru.save(); 
-        
         
         res.status(201).json({ 
             notifikasi: "Kapsul berhasil dikubur!", 
