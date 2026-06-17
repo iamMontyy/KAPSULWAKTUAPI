@@ -80,5 +80,5 @@ app.get('/capsule/:id', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server Time Capsule berjalan di http://localhost:${PORT}`);
+    console.log(`Server berjalan di http://localhost:${PORT}`);
 });
