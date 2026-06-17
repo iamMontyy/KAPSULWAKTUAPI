@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/time_capsule_db')
-    .then(() => console.log('Terhubung ke database Kapsul Waktu!'))
+    .then(() => console.log('Terhubung ke database Time Capsule!'))
     .catch((err) => console.log('Gagal terhubung:', err));
 
 const capsuleSchema = new mongoose.Schema({
@@ -46,4 +46,39 @@ app.post('/capsule', async (req, res) => {
     } catch (error) {
         res.status(400).json({ notifikasi: "Gagal mengubur kapsul" });
     }
+});
+
+app.get('/capsule/:id', async (req, res) => {
+    try {
+        const idKapsul = req.params.id;
+        const kapsulDitemukan = await Capsule.findById(idKapsul);
+        
+        if (!kapsulDitemukan) {
+            return res.status(404).json({ notifikasi: "Kapsul tidak ditemukan." });
+        }
+
+        const waktuSekarang = new Date();
+
+        
+        if (waktuSekarang < kapsulDitemukan.tanggal_buka) {
+            
+            return res.status(403).json({
+                notifikasi: "Akses Ditolak! Kapsul waktu ini masih terkunci.",
+                baru_boleh_dibuka_pada: kapsulDitemukan.tanggal_buka
+            });
+        }
+
+        
+        res.status(200).json({ 
+            notifikasi: "Kapsul waktu berhasil dibuka!", 
+            isi_rahasia: kapsulDitemukan.pesan 
+        });
+
+    } catch (error) {
+        res.status(500).json({ notifikasi: "Gagal membaca data." });
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Server Time Capsule berjalan di http://localhost:${PORT}`);
 });
