@@ -42,7 +42,7 @@ app.post('/capsule', async (req, res) => {
             id_kapsul: kapsulBaru._id 
         });
     } catch (error) {
-        res.status(400).json({ notifikasi: "Gagal mengubur kapsul" });
+        res.status(400).json({ notifikasi: "Gagal mengubur kapsul waktu" });
     }
 });
 
