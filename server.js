@@ -52,7 +52,7 @@ app.get('/capsule/:id', async (req, res) => {
         const kapsulDitemukan = await Capsule.findById(idKapsul);
         
         if (!kapsulDitemukan) {
-            return res.status(404).json({ notifikasi: "Kapsul tidak ditemukan." });
+            return res.status(404).json({ notifikasi: "Kapsul tidak dapat ditemukan." });
         }
 
         const waktuSekarang = new Date();
