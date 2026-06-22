@@ -55,7 +55,6 @@ document.getElementById('copy-btn').addEventListener('click', () => {
   });
 });
 
-// ── Buka ─────────────────────────────────────
 let timer = null;
 
 document.getElementById('form-buka').addEventListener('submit', async e => {
