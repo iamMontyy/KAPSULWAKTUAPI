@@ -45,7 +45,7 @@ document.getElementById('form-kubur').addEventListener('submit', async e => {
   }
 });
 
-// Copy ID
+
 document.getElementById('copy-btn').addEventListener('click', () => {
   const id = document.getElementById('result-id').textContent;
   navigator.clipboard.writeText(id).then(() => {
