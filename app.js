@@ -11,7 +11,7 @@ document.querySelectorAll('.tab').forEach(btn => {
   });
 });
 
-// ── Kubur ────────────────────────────────────
+
 document.getElementById('form-kubur').addEventListener('submit', async e => {
   e.preventDefault();
   const btn = document.getElementById('btn-kubur');
