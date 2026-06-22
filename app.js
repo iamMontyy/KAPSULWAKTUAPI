@@ -1,6 +1,6 @@
 const API = 'http://localhost:3000';
 
-// ── Tabs ─────────────────────────────────────
+
 document.querySelectorAll('.tab').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
