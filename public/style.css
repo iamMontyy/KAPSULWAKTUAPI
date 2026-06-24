@@ -19,7 +19,7 @@ header {
 .logo {
   font-size: 1rem;
   font-weight: 600;
-  color: #f5a623;
+  color: #ffffff;
   letter-spacing: 0.05em;
 }
 
@@ -29,7 +29,7 @@ main {
   padding: 0 24px;
 }
 
-/* Tabs */
+
 .tabs {
   display: flex;
   gap: 4px;
@@ -61,11 +61,11 @@ main {
   color: #f5a623;
 }
 
-/* Panel */
+
 .panel { display: none; }
 .panel.active { display: block; }
 
-/* Form */
+
 label {
   display: block;
   font-size: 0.8rem;
@@ -123,7 +123,7 @@ button[type="submit"] {
 button[type="submit"]:hover { opacity: 0.85; }
 button[type="submit"]:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* Result */
+
 .result {
   margin-top: 24px;
   padding: 20px;
