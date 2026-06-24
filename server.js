@@ -1,10 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/time_capsule_db')
     .then(() => console.log('Terhubung ke database!'))
@@ -35,6 +39,7 @@ app.post('/capsule', async (req, res) => {
             pesan: pesan,
             tanggal_buka: tanggal_buka
         });
+        
         await kapsulBaru.save(); 
         
         res.status(201).json({ 
@@ -57,16 +62,13 @@ app.get('/capsule/:id', async (req, res) => {
 
         const waktuSekarang = new Date();
 
-        
         if (waktuSekarang < kapsulDitemukan.tanggal_buka) {
-            
             return res.status(403).json({
                 notifikasi: "Akses Ditolak! Kapsul waktu ini masih terkunci.",
                 baru_boleh_dibuka_pada: kapsulDitemukan.tanggal_buka
             });
         }
 
-        
         res.status(200).json({ 
             notifikasi: "Kapsul waktu berhasil dibuka!", 
             isi_rahasia: kapsulDitemukan.pesan 
