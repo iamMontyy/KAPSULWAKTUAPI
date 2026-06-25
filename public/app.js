@@ -1,6 +1,6 @@
 const API = 'http://localhost:3000';
 
-// ── Tabs ─────────────────────────────────────
+
 document.querySelectorAll('.tab').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
@@ -11,7 +11,6 @@ document.querySelectorAll('.tab').forEach(btn => {
   });
 });
 
-// ── Kubur ────────────────────────────────────
 document.getElementById('form-kubur').addEventListener('submit', async e => {
   e.preventDefault();
   const btn = document.getElementById('btn-kubur');
@@ -29,7 +28,6 @@ document.getElementById('form-kubur').addEventListener('submit', async e => {
       body: JSON.stringify({ pesan, tanggal_buka: new Date(tanggal).toISOString() })
     });
     const data = await res.json();
-
     if (res.ok) {
       document.getElementById('result-id').textContent = data.id_kapsul;
       document.getElementById('result-kubur').classList.remove('hidden');
@@ -45,7 +43,6 @@ document.getElementById('form-kubur').addEventListener('submit', async e => {
   }
 });
 
-// Copy ID
 document.getElementById('copy-btn').addEventListener('click', () => {
   const id = document.getElementById('result-id').textContent;
   navigator.clipboard.writeText(id).then(() => {
@@ -55,7 +52,6 @@ document.getElementById('copy-btn').addEventListener('click', () => {
   });
 });
 
-// ── Buka ─────────────────────────────────────
 let timer = null;
 
 document.getElementById('form-buka').addEventListener('submit', async e => {
