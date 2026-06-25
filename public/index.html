@@ -15,13 +15,13 @@
 
   <main>
 
-    <!-- TABS -->
+
     <div class="tabs">
       <button class="tab active" data-tab="kubur">Kubur</button>
       <button class="tab" data-tab="buka">Buka</button>
     </div>
 
-    <!-- KUBUR -->
+    
     <section class="panel active" id="panel-kubur">
       <form id="form-kubur">
         <label for="pesan">Pesan</label>
@@ -34,7 +34,7 @@
       </form>
 
       <div class="result hidden" id="result-kubur">
-        <p class="ok">✓ Kapsul berhasil dikubur!</p>
+        <p class="ok">Kapsul berhasil dikubur!</p>
         <p class="label">Simpan ID ini:</p>
         <div class="id-row">
           <code id="result-id"></code>
@@ -44,7 +44,7 @@
       </div>
     </section>
 
-    <!-- BUKA -->
+    
     <section class="panel" id="panel-buka">
       <form id="form-buka">
         <label for="capsule-id">ID Kapsul</label>
@@ -53,13 +53,13 @@
       </form>
 
       <div class="result hidden" id="result-ok">
-        <p class="ok">✓ Kapsul terbuka!</p>
+        <p class="ok">Kapsul terbuka!</p>
         <p class="label">Pesan:</p>
         <div class="message" id="isi-pesan"></div>
       </div>
 
       <div class="result hidden" id="result-lock">
-        <p class="err">✗ Kapsul masih terkunci</p>
+        <p class="err">Kapsul masih terkunci</p>
         <p class="label">Bisa dibuka pada:</p>
         <p class="date" id="lock-date"></p>
         <p class="countdown" id="countdown"></p>
