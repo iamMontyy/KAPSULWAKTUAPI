@@ -58,7 +58,7 @@ main {
 
 .tab.active {
   background: #1a1a1a;
-  color: #f5a623;
+  color: #ffffff;
 }
 
 
@@ -95,7 +95,7 @@ input[type="datetime-local"] {
 
 textarea:focus,
 input:focus {
-  border-color: #f5a623;
+  border-color: #ffffff;
 }
 
 textarea::placeholder,
@@ -109,7 +109,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 button[type="submit"] {
   width: 100%;
   padding: 12px;
-  background: #f5a623;
+  background: #ffffff;
   border: none;
   border-radius: 8px;
   color: #0a0a0a;
