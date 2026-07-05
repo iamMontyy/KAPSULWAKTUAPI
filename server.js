@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/time_capsule_db')
-    .then(() => console.log('Terhubung ke database!'))
+    .then(() => console.log('Terhubung ke database!')
     .catch((err) => console.log('Gagal terhubung:', err));
 
 const capsuleSchema = new mongoose.Schema({
