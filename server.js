@@ -64,7 +64,7 @@ app.get('/capsule/:id', async (req, res) => {
 
         if (waktuSekarang < kapsulDitemukan.tanggal_buka) {
             return res.status(403).json({
-                notifikasi: "Akses Ditolak! Kapsul waktu ini masih terkunci.",
+                notifikasi: "Akses Ditolak! Kapsul waktu ku ini masih terkunci.",
                 baru_boleh_dibuka_pada: kapsulDitemukan.tanggal_buka
             });
         }
